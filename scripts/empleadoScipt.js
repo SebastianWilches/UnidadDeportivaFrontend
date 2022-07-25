@@ -114,7 +114,7 @@ const getPersonalInfo = () => {
                     </div>
                 </div>
                 <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" onclick=eventUpdatePersonal('${empleado.idpersonal}IDPersonalInputUpdate', '${empleado.idpersonal}NombreInputUpdate', '${empleado.idpersonal}PrimerApellidoInputUpdate', '${empleado.idpersonal}SegundoApellidoInputUpdate', '${empleado.idpersonal}FechaNacimientoInputUpdate', '${empleado.idpersonal}TelefonoInputUpdate')>Actualizar información</button>
+                        <button type="button" class="btn btn-dark" onclick=eventUpdatePersonal('${empleado.idpersonal}IDPersonalInputUpdate','${empleado.idpersonal}NombreInputUpdate','${empleado.idpersonal}PrimerApellidoInputUpdate','${empleado.idpersonal}SegundoApellidoInputUpdate','${empleado.idpersonal}FechaNacimientoInputUpdate','${empleado.idpersonal}TelefonoInputUpdate')>Actualizar información</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -147,6 +147,7 @@ const eventUpdatePersonal = (IDPersonalInput, NombreInput, PrimerApellidoInput, 
         telefono_usuario
     }
 
+    console.log(objetoForm);
     putEmpleado(objetoForm);
 }
 
@@ -188,7 +189,7 @@ const postEmpleado = async (objetoEmpleado) => {
 
 //PUT empleado
 const putEmpleado = async (objetoEmpleado) => {
-    const response = await fetch(API_URL + "Personal/save", {
+    const response = await fetch(API_URL + "Personal/update", {
         method: 'PUT',
         body: JSON.stringify(objetoEmpleado),
         headers: {
@@ -198,7 +199,7 @@ const putEmpleado = async (objetoEmpleado) => {
     const data = await response.json();
     console.log(data);
 
-    recargarPagina();
+    // recargarPagina();
 }
 
 
